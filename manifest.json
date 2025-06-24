@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "AZ Problem Tracker",
+  "version": "0.1",
+  "author": "Sai Dinesh",
+  "description": "Bookmark questions on the Algozenith Platform",
+  "permissions": [
+    "storage",
+    "scripting"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://maang.in/problems/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources" : [
+    {
+      "resources": ["style.css","assets/bookmark.png","assets/delete.png","assets/edit.png","assets/ext-icon.png","assets/play.png","assets/save.png","scripts.js"],
+      "matches" : ["<all_urls>"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "assets/ext-icon.png",
+      "24": "assets/ext-icon.png",
+      "32": "assets/ext-icon.png"
+    },
+    "default_popup": "index.html",
+    "default_title": "Get access to the bookmarked questions on Algozenith platform"
+  }
+}
